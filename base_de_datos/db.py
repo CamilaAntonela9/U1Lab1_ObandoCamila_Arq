@@ -15,8 +15,8 @@ DB_CONFIG = {
 
 def obtener_conexion():
     try:
-        conexion = pyscopg2.connect(DB_CONFIG, cursor_factory=RealDictCursor)
+        conexion = psycopg2.connect(**DB_CONFIG, cursor_factory=RealDictCursor)
         return conexion
-    except pyscopg2.Error as e:
-        print(f"Error al conectar a la base de datos: {e}")
+    except psycopg2.Error as e:
+        print(f"Error: {e}")
         return None

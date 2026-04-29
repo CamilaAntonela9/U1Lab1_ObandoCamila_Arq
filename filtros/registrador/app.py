@@ -51,7 +51,6 @@ def registrar():
         cursor.close()
         conn.close()
         
-        # Retorna el ID asignado por la base de datos [cite: 24, 208]
         return jsonify({
             "estado": "ok", 
             "mensaje": f"Paciente {ctx.get('nombre')} registrado con éxito",
@@ -63,7 +62,6 @@ def registrar():
 
     except Exception as e:
         return jsonify({"estado": "error", "mensaje": str(e)}), 500
-
 if __name__ == "__main__":
     # Puerto 5003 según el diseño arquitectónico [cite: 26, 173]
     app.run(port=5003, debug=True)
